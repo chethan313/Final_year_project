@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+   <meta charset="utf-8">
+   <title>Student Login</title>
+   <link rel="stylesheet" href="css/student.css">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+   <div class="wrapper">
+      <div class="title-text">
+         <div class="title login">
+            Student Login
+         </div>
+      </div>
+
+      
+
+         <div class="form-inner">
+            <!-- LOGIN FORM -->
+            <form action="#" class="login" onsubmit="return validateLogin()">
+   <div class="field">
+      <input type="text" id="ug" placeholder="UG Number" required>
+   </div>
+
+   <div class="field">
+      <input type="password" id="password" placeholder="DOB (DD-MM-YYYY)" required>
+   </div>
+
+   <!-- SHOW PASSWORD -->
+   <div style="margin-top:10px;">
+      <input type="checkbox" onclick="togglePassword()"> Show Password
+   </div>
+
+   <!-- ERROR MESSAGE -->
+   <p id="errorMsg" style="color:red; margin-top:10px;"></p>
+
+   <!-- SUBMIT BUTTON -->
+   <div class="btn">
+      <div class="btn-layer"></div>
+      <input type="submit" value="Login">
+   </div>
+</form>
+         </div>
+      </div>
+   </div>
+
+   <script>
+     function togglePassword() {
+   const pass = document.getElementById("password");
+   pass.type = pass.type === "password" ? "text" : "password";
+}
+
+function validateLogin() {
+   const ug = document.getElementById("ug").value.trim();
+   const password = document.getElementById("password").value.trim();
+   const errorMsg = document.getElementById("errorMsg");
+
+   errorMsg.innerText = "";
+
+   // FORMAT VALIDATION
+   const ugPattern = /^U\d{2}[A-Z]{2}\d{2}S\d{4}$/;
+   const dobPattern = /^\d{2}-\d{2}-\d{4}$/;
+
+   if (!ugPattern.test(ug)) {
+      errorMsg.innerText = "Invalid UG format!";
+      return false;
+   }
+
+   if (!dobPattern.test(password)) {
+      errorMsg.innerText = "DOB must be in DD-MM-YYYY format!";
+      return false;
+   }
+
+   const students = [
+      { ug: "U06ME23S0077", dob: "31-03-2006" },
+      { ug: "U06ME23SOO69", dob: "04-03-2006" },
+      { ug: "U06ME23S0056", dob: "18-08-2005" }
+   ];
+
+   const student = students.find(s => s.ug === ug && s.dob === password);
+
+   if (student) {
+      errorMsg.style.color = "green";
+      errorMsg.innerText = "Login Successful!";
+      // Redirect to Google Drive link
+      setTimeout(() => {
+         window.location.href = "https://drive.google.com/drive/folders/17DnpjSB48an0Npt3doroSqGFjQwM0OBq?usp=sharing";
+      }, 1000);
+   } else {
+      errorMsg.style.color = "red";
+      errorMsg.innerText = "Invalid UG Number or Password!";
+   }
+
+   return false;
+}
+      
+   </script>
+</body>
+</html>
