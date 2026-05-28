@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MES MSPS AI Assistant</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@32,400,0,0" />
+    <link rel="stylesheet" href="chat.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <button id="new-chat-btn" class="new-chat-btn">
+        <span class="material-symbols-rounded">add</span>
+        New Chat
+      </button>
+      <div class="chat-history-list">
+        </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="container">
+        <header class="app-header">
+          <img class="header-logo" src="images/logo_project.png" alt="MES MSPS AI Logo" />
+          <h1 class="heading">MES MSPS AI</h1>
+          <h4 class="sub-heading">Ask anything about the campus</h4>
+        </header>
+
+        <ul class="suggestions">
+          <li class="suggestions-item">
+            <p class="text">What courses are offered in the college?</p>
+            <span class="icon material-symbols-rounded">school</span>
+          </li>
+          <li class="suggestions-item">
+            <p class="text">Where is the college library located?</p>
+            <span class="icon material-symbols-rounded">menu_book</span>
+          </li>
+          <li class="suggestions-item">
+            <p class="text">How can I contact the college administration?</p>
+            <span class="icon material-symbols-rounded">call</span>
+          </li>
+          <li class="suggestions-item">
+            <p class="text">What facilities are available on campus?</p>
+            <span class="icon material-symbols-rounded">apartment</span>
+          </li>
+        </ul>
+
+        <div class="chats-container"></div>
+
+        <div class="prompt-container">
+          <div class="prompt-wrapper">
+            <form action="#" class="prompt-form">
+              <input type="text" placeholder="Ask anything" class="prompt-input" required />
+              <div class="prompt-actions">
+                <button id="mic-btn" type="button" class="material-symbols-rounded" title="Voice input">mic</button>
+                <button id="stop-response-btn" type="button" class="material-symbols-rounded">stop_circle</button>
+                <button id="send-prompt-btn" class="material-symbols-rounded">arrow_upward</button>
+              </div>
+            </form>
+            <button id="theme-toggle-btn" class="material-symbols-rounded">light_mode</button>
+            <button id="voice-toggle-btn" class="material-symbols-rounded" title="Toggle voice output">volume_up</button>
+            <button id="delete-chats-btn" class="material-symbols-rounded">delete</button>
+          </div>
+          <p class="disclaimer-text">MES MSPS AI can make mistakes, so double-check it.</p>
+        </div>
+      </div>
+    </main>
+    <script src="chat.js"></script>
+  </body>
+</html>
